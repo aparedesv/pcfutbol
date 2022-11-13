@@ -1,0 +1,29 @@
+@import '_variables';
+
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+#backoffice {
+
+    >div {
+
+        width: 100%;
+        height: 100vh;
+
+        #seccions {
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            >div {
+
+                // transform: rotate(45deg);
+            }
+        }
+
+    }
+
+
+}

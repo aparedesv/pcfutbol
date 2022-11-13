@@ -8,6 +8,7 @@ export default defineConfig({
                 'resources/css/app.css',
                 'resources/js/app.js',
                 'resources/sass/web.scss',
+                'resources/sass/backoffice.scss',
             ],
             refresh: true,
         }),

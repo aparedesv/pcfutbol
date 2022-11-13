@@ -16,6 +16,6 @@ use Illuminate\Support\Facades\Route;
 
 $router->group(['middleware' => ['auth', 'verified']], function () use ($router) {
 
-    Route::get('/dashboard', [DashboardBackofficeController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [DashboardBackofficeController::class, 'index'])->name('backoffice.dashboard');
 
 });

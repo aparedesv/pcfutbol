@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\Backoffice\DashboardBackofficeController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Web\HomeWebController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +14,8 @@ use App\Http\Controllers\Web\HomeWebController;
 |
 */
 
-Route::get('/', [HomeWebController::class, 'index']);
+$router->group(['middleware' => ['auth', 'verified']], function () use ($router) {
 
-require __DIR__.'/auth.php';
-require __DIR__.'/backoffice.php';
+    Route::get('/dashboard', [DashboardBackofficeController::class, 'index'])->name('dashboard');
+
+});

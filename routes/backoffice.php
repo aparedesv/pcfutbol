@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\Backoffice\DashboardBackofficeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Backoffice\ProfileBackofficeController;
+use App\Http\Controllers\Backoffice\DashboardBackofficeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,5 +18,6 @@ use Illuminate\Support\Facades\Route;
 $router->group(['middleware' => ['auth', 'verified']], function () use ($router) {
 
     Route::get('/dashboard', [DashboardBackofficeController::class, 'index'])->name('backoffice.dashboard');
+    Route::get('/profile', [ProfileBackofficeController::class, 'index'])->name('backoffice.profile');
 
 });

@@ -8,7 +8,7 @@
 
                 <img
                     src="{{ asset('storage/img/ball.png') }}"
-                    class="w-25"
+                    class="img-fluid"
                     alt="logo"
                 >
 
@@ -22,26 +22,37 @@
 
             <div class="d-flex align-items-center pe-3">
 
-                <div>
-                    <div>
-                        <span class="text-dark">
-                            {{ ucwords(Auth::user()->name) }}
-                        </span>
-                    </div>
+                <div class="d-none d-sm-block">
+                    <span class="text-dark">
+                        {{ ucwords(Auth::user()->name) }}
+                    </span>
                 </div>
 
                 <div class="ms-4">
 
-                    <a
-                        class="text-decoration-none text-white ps-2" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();document.getElementById('logout-form').submit();"
-                    >
-                        <i class="bi bi-box-arrow-right text-dark h2"></i>
-                    </a>
+                    @if(Request::segment(1) == config('constants.BACKOFFICE_PROFILE') && !Request::segment(2))
 
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
+
+                        <a
+                            class="text-decoration-none text-white ps-2"
+                            href="{{ route('logout') }}"
+                            onclick="event.preventDefault();document.getElementById('logout-form').submit();"
+                        >
+                            <i class="bi bi-box-arrow-right text-dark h2"></i>
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+
+                    @else
+
+                        <a href="{{ route('backoffice.profile') }}" class="btn btn-link">
+                            <i class="bi bi-person text-dark h2"></i>
+                        </a>
+
+                    @endif
+
                 </div>
 
             </div>

@@ -24,9 +24,16 @@
 
             <div id="backoffice">
 
-                @include('backoffice.layouts.topbar')
+                <div>
 
-                @yield('content')
+                    @include('backoffice.layouts.topbar')
+
+                    @include('backoffice.layouts.shortcutsbar')
+
+                    @yield('content')
+
+                </div>
+
 
             </div>
 
